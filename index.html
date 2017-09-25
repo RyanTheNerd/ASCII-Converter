@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ASCII Converter</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <p></p>
+<div id="controls">
+  <input type="file" id="imageUpload"></input></br>
+  </br>
+  <label for="blocks">Blocks: </label>
+  <input id="blocks" type="checkbox" onclick="swapSets(this.checked)"></input></br>
+  <label for="ibm">IBM Mode: </label>
+  <input id="ibm" onclick="ibm(this.checked)" type="checkbox"></input></br>
+  </br>
+  Brightness</br><input id="gamma" oninput="main(image)" type="range" min="-255" max="255" step="1" value="0"></input></br>
+  Boldness</br><input id="bright" oninput="bright(this.value)" type="range" min="100" max="900" step="100"></input></br>
+  Columns</br><input id="rows" oninput="main(image)" type="range" min="25" max="600" step="1" value="80"></input></br>
+  Char Size</br><input id="zoom" oninput="main(image)" type="range" value="14" min="2" max="14"></input></br>
+  </br>
+  <p>3D Controls:</p>
+  Depth: <input id="focus" type="range" value="0" min="0" step="0.025" max="2.5" oninput="s=this.value;threeD()"></input>
+  </br></br>
+  <button type="button" onclick="getImageUrl()">Export URL</button>
+</div>
+<div id="image">
+</div>
+  <script src="js/smallFunc.js"></script>
+  <script src="js/baseConvert.js"></script>
+  <script src="js/fromURL.js"></script>
+  <script src="js/toURL.js"></script>
+  <script src="js/image.js"></script>
+  <script src="js/video.js"></script>
+  <script  src="js/index.js"></script>
+</body>
+</html>
