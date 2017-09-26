@@ -40,3 +40,6 @@ pre {
   margin: 0;
   padding: 0;
 }
+#charLim {
+  width: 50px;
+}

@@ -16,6 +16,8 @@
   <input id="blocks" type="checkbox" onclick="swapSets(this.checked)"></input></br>
   <label for="ibm">IBM Mode: </label>
   <input id="ibm" onclick="ibm(this.checked)" type="checkbox"></input></br>
+  <label for="charLim">Char limit: </label>
+  <input id="charLim" type="number" oninput="main(image)" value="2000"></input>
   </br>
   Brightness</br><input id="gamma" oninput="main(image)" type="range" min="-255" max="255" step="1" value="0"></input></br>
   Boldness</br><input id="bright" oninput="bright(this.value)" type="range" min="100" max="900" step="100"></input></br>

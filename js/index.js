@@ -24,7 +24,7 @@ function convert2Blocks(pixels, px, gamma, dbmode) {
 function main(source) {
   factor = document.getElementById("zoom").value;
 
-  ascii.width = document.getElementById("rows").value;
+  ascii.width = parseInt(document.getElementById("rows").value);
   ascii.height = Math.round(ascii.width*ascii.charWidth/ratio/ascii.charHeight);
 
   canvas.width = ascii.width;
@@ -41,6 +41,7 @@ function main(source) {
   document.body.appendChild(finalProduct);
 
   gamma = document.getElementById("gamma").value;
+  charLim = document.getElementById("charLim").value;
   pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
   finalProduct.style.fontSize = factor + "px";
@@ -50,15 +51,18 @@ function main(source) {
 
   pixelCount = 0;
   mono = [];
-
+  charCount = 0;
   for(var y = 0; y < ascii.height; y++) {
     mono[y] = [];
-
+    if(charLim > 0 && charCount + ascii.width > charLim) {
+      finalProduct.appendChild(document.createElement("br"));
+      charCount = 0;
+    }
     for(var x = 0; x < ascii.width*4; x += 4) {
       mono[y].push(convert2Blocks(pixels, pixelCount, gamma));
       pixelCount += 4;
+      charCount++;
     }
-
     mono[y] = mono[y].join("");
     newLine = document.createElement("pre");
     newLine.innerHTML = mono[y];

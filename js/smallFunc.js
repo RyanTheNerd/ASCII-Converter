@@ -30,5 +30,9 @@ function bright(b) {
 
 var s = 0;
 function threeD() {
-  document.body.style.textShadow = `-${s}em -${s}em red, ${s}em ${s}em blue`;
+  if(s > 0) {
+    document.body.style.textShadow = `-${s}em -${s}em red, ${s}em ${s}em blue`;
+    return;
+  }
+  document.body.style.textShadow = "none";
 }
